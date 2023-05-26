@@ -6,7 +6,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<div>Home</div>} /> 
         <Route path="/about" element={<div>About</div>} />
-        
+        <Route path='/aby' element={<div>Aby</div>}/>
       </Routes>
     </div>
   );
