@@ -1,7 +1,8 @@
 import Slider from 'react-slick';
 import { useEffect, useState } from 'react';
-import css from './SliderTrendingFilm.module.css';
+import './SliderTrendingFilm.css';
 import * as API from 'service/api';
+import { Rating } from '@mui/material';
 
 export default function SliderTrendingFilm() {
   const settings = {
@@ -9,7 +10,10 @@ export default function SliderTrendingFilm() {
     dots: false,
     fade: true,
     infinite: true,
+    autoplay: true,
     speed: 500,
+    autoplaySpeed: 5000,
+
     slidesToShow: 1,
     slidesToScroll: 1,
   };
@@ -17,32 +21,58 @@ export default function SliderTrendingFilm() {
   const [trendingFilms, setTrendingFilms] = useState();
   useEffect(() => {
     const axsiosTrending = async () => {
-      const data = await API.getTrending();
+      const data = await API.getTrending('all/day');
       setTrendingFilms(data);
     };
     axsiosTrending();
   }, []);
-  console.log(trendingFilms);
 
-  console.log();
-  return (
-    <Slider {...settings}>
-      {trendingFilms?.results.map(
-        ({ backdrop_path, id, title, name, overview }) => {
-          console.log(name, title);
-          return (
-            <div key={id} className={css.slider__card}>
-              <div className={css.wrapp}>
-                <img src={BASE_URL + backdrop_path} alt={title} />
-                <div className={css.slider__info}>
-                  <h1>{title === undefined ? name : title}</h1>
-                  <p>{overview}</p>
+  return ( 
+      <Slider {...settings}>
+        {trendingFilms?.results.map(
+          ({
+            backdrop_path,
+            id,
+            title,
+            name,
+            overview,
+            release_date,
+            first_air_date,
+            vote_average,
+          }) => {
+            return (
+              <div key={id} className="slider__card">
+                <div className="wrapp">
+                  <img src={BASE_URL + backdrop_path} alt={title} />
+
+                  <div className="slider__info">
+                    <h1 className="slider__title">
+                      {title === undefined ? name : title}
+                    </h1>
+                    <div className="slider__relize">
+                      <Rating
+                        name="read-only"
+                        max={10}
+                        value={vote_average}
+                        size="small"
+                        readOnly
+                        className="reating"
+                      />
+                      <p>
+                        {release_date === undefined
+                          ? first_air_date
+                          : release_date}
+                      </p>
+                    </div>
+
+                    <p className="slider__text">{overview}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        }
-      )}
-    </Slider>
+            );
+          }
+        )}
+      </Slider>
+  
   );
 }
