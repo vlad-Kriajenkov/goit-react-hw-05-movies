@@ -1,0 +1,14 @@
+.slider__card {
+  /* position: inherit; */
+  height: 100vh !important;
+}
+.slider__info {
+  position: fixed;
+  top: 50%;
+  left: 0%;
+
+  transform: translate(8%, -50%);
+}
+.wrapp {
+  position: absolute;
+}
