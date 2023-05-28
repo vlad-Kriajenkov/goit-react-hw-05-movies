@@ -5,6 +5,10 @@ import * as API from 'service/api';
 import { Rating } from '@mui/material';
 
 export default function SliderTrendingFilm() {
+ 
+  const BASE_URL = 'https://image.tmdb.org/t/p/original';
+  const [trendingFilms, setTrendingFilms] = useState();
+
   const settings = {
     arrows: false,
     dots: false,
@@ -13,12 +17,12 @@ export default function SliderTrendingFilm() {
     autoplay: true,
     speed: 500,
     autoplaySpeed: 5000,
-
+    pauseOnHover: false,
     slidesToShow: 1,
     slidesToScroll: 1,
+   
   };
-  const BASE_URL = 'https://image.tmdb.org/t/p/original';
-  const [trendingFilms, setTrendingFilms] = useState();
+ 
   useEffect(() => {
     const axsiosTrending = async () => {
       const data = await API.getTrending('all/day');

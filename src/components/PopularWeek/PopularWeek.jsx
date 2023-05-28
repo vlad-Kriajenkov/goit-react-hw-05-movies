@@ -58,7 +58,7 @@ export default function PopularWeek() {
                       {vote_average} | {media_type.toUpperCase()}
                     </StatFilm>
 
-                    <Link to={`${id}`}>
+                    <Link to={`movies/${id}`}>
                       <Button
                         variant="contained"
                         color="success"

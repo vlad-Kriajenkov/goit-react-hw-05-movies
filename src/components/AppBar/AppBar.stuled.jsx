@@ -14,6 +14,10 @@ export const Container = styled.div`
   grid-template-columns: 1fr 5fr 1fr;
   align-items: center;
   padding: 20px 0px 20px 0px;
+
+  @media(min-width: 1300px){
+    grid-template-columns: 1.5fr 5fr 1fr;
+  }
 `;
 
 export const WrapperLogo = styled.div`

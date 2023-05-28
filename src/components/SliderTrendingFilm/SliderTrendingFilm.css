@@ -54,4 +54,9 @@
   color: rgb(255 255 255 / 26%);
 }
 
- 
+ .slick-arrow.slick-prev{
+  display: none !important;
+ }
+ .slick-arrow.slick-next{
+   right: -9px;
+ }
