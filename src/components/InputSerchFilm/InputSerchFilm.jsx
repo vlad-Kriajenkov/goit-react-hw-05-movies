@@ -1,59 +1,57 @@
-import { useState } from 'react';
-import * as API from 'service/api';
-import './InputSerchFilm.css';
+import React, {  useState } from 'react';
 
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import { NavLink } from 'react-router-dom';
 
-export default function InputSerchFilm(params) {
-  const [nameFilm, setNameFilm] = useState();
-  const [film, setFilm] = useState();
+import { useNavigate } from 'react-router-dom';
 
-  const axsiosSearchFilms = async () => {
-    const data = await API.searchFilm(nameFilm);
-    setFilm(data);
+// TODO : в пропс можно передать с другого компонента и записатьего в переменную вместо того что бы писать его в локал сторедж
+
+const InputSerchFilm = () => {
+  const navigate = useNavigate();
+  const [searchValue, setSearchValue] = useState('');
+
+  const handelChange = e => {
+    setSearchValue(e.target.value);
   };
 
-  const onHandelChange = e => {
-    const value = e.target.value;
-
-    setNameFilm(value);
-  };
-
-  const onSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    axsiosSearchFilms();
-
-    setNameFilm('');
+    navigate(`/movies?name=${searchValue}`);
   };
-console.log(film);
+
   return (
     <Paper
       component="form"
-      sx={{ display: 'flex', alignItems: 'center', width: 300, marginRight: 5 }}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        width: 300,
+        marginRight: 5,
+      }}
     >
       <InputBase
         className="search__input"
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search"
-        value={nameFilm}
-        onChange={onHandelChange}
+        value={searchValue}
+        onChange={handelChange}
       ></InputBase>
 
       <IconButton
-        disabled={nameFilm === undefined || nameFilm === '' ? true : false}
+        disabled={
+          searchValue === undefined || searchValue === '' ? true : false
+        }
         type="submit"
-        onClick={onSubmit}
+        onClick={handleSubmit}
         sx={{ p: '10px' }}
         aria-label="search"
       >
-        <NavLink to="/movies">
-          <SearchIcon />
-        </NavLink>
+        <SearchIcon />
       </IconButton>
     </Paper>
   );
-}
+};
+export default InputSerchFilm;
