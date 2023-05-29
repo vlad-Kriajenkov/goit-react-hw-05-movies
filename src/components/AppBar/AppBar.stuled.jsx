@@ -15,7 +15,7 @@ export const Container = styled.div`
   align-items: center;
   padding: 20px 0px 20px 0px;
 
-  @media(min-width: 1300px){
+  @media (max-width: 1440px) {
     grid-template-columns: 1.5fr 5fr 1fr;
   }
 `;
@@ -50,6 +50,6 @@ export const Nav = styled.nav`
 `;
 
 export const WrapperBtn = styled.div`
-  margin-left: auto;
+  display: flex; 
   margin-right: 150px;
 `;

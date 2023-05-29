@@ -47,3 +47,23 @@ export const getCredits = async id => {
   const response = await axios.request(options);
   return response.data;
 };
+
+export const searchFilm = async query => {
+  const options = {
+    method: 'GET',
+    url: 'https://api.themoviedb.org/3/search/movie',
+    params: {
+      query: `${query}`,
+      include_adult: 'false',
+      language: 'en-US',
+      page: '1',
+    },
+    headers: {
+      accept: 'application/json',
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YTNmMGExY2FmN2JkNTg2ZjNkYmNkYjM0OGZiZGQyNCIsInN1YiI6IjY0NzBhYjRkNTQzN2Y1MDBlNDIxMzJiZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Y4Nrz08e1xfrHty7w4hAPcuzOQA6IgCURKYP1zbHNy8',
+    },
+  };
+  const response = await axios.request(options);
+  return response.data;
+};
