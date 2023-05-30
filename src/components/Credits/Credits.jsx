@@ -2,7 +2,7 @@ import { Avatar } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import * as API from 'service/api';
-import { CardItem, CardList, Info } from './Credits.stuled';
+import { CardItem, CardList } from './Credits.stuled';
 import StatusNotification from 'components/StatusNotification/StatusNotification';
 
 export default function Credits() {
