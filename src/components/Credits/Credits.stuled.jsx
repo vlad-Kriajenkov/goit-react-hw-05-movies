@@ -20,3 +20,5 @@ export const CardItem = styled.li`
   background-color: rgb(192 192 192);
   color: #000000;
 `;
+
+ 

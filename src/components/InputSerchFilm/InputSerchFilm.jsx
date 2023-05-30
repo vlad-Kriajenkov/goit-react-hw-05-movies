@@ -7,7 +7,6 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import { useNavigate } from 'react-router-dom';
 
-// TODO : в пропс можно передать с другого компонента и записатьего в переменную вместо того что бы писать его в локал сторедж
 
 const InputSerchFilm = () => {
   const navigate = useNavigate();

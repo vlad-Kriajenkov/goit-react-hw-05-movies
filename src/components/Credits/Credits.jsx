@@ -1,8 +1,9 @@
 import { Avatar } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import * as API from 'service/api'; 
-import { CardItem,CardList } from './Credits.stuled';
+import * as API from 'service/api';
+import { CardItem, CardList, Info } from './Credits.stuled';
+import StatusNotification from 'components/StatusNotification/StatusNotification';
 
 export default function Credits() {
   const [credits, setCredits] = useState();
@@ -17,7 +18,9 @@ export default function Credits() {
     axsiosCredits();
   }, [id]);
   console.log(credits);
-  return (
+  return credits?.cast.length === 0 ? (
+    <StatusNotification  text={'Unfortunately no information :('}/>
+  ) : (
     <CardList>
       {credits?.cast.map(({ character, original_name, id, profile_path }) => (
         <CardItem key={id}>

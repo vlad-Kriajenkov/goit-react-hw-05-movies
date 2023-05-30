@@ -67,3 +67,18 @@ export const searchFilm = async query => {
   const response = await axios.request(options);
   return response.data;
 };
+
+
+export const getReviews = async (movie_id)=>{
+  const options = {
+    method: 'GET',
+    url: `https://api.themoviedb.org/3/movie/${movie_id}/reviews`,
+    params: {language: 'en-US', page: '1'},
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YTNmMGExY2FmN2JkNTg2ZjNkYmNkYjM0OGZiZGQyNCIsInN1YiI6IjY0NzBhYjRkNTQzN2Y1MDBlNDIxMzJiZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Y4Nrz08e1xfrHty7w4hAPcuzOQA6IgCURKYP1zbHNy8'
+    }
+  };
+  const response = await axios.request(options);
+  return response.data;
+}

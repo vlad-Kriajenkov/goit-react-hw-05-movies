@@ -6,9 +6,9 @@ export const ConatinerMoviesID = styled.div`
 
 export const WrapperInfo = styled.div`
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 0%;
-  transform: translate(24%, -20%);
+  transform: translate(24%, 20%);
 
   width: 600px;
 
@@ -19,13 +19,14 @@ export const WrapperInfo = styled.div`
   background-color: rgb(0, 0, 0, 0.8);
   color: #ffffff;
   @media(min-width: 1300px){
-    transform: translate(24%, -40%);
+    transform: translate(24%, -20%);
   }
 `;
 
 export const ImgFilm = styled.img`
   height: 100vh;
 `;
+
 
 export const Title = styled.p`
   font-weight: 700;
