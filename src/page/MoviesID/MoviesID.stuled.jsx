@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const ConatinerMoviesID = styled.div`
+export const ContainerMoviesID = styled.div`
   position: reletive;
 `;
 
@@ -18,7 +18,7 @@ export const WrapperInfo = styled.div`
 
   background-color: rgb(0, 0, 0, 0.8);
   color: #ffffff;
-  @media(min-width: 1300px){
+  @media (min-width: 1300px) {
     transform: translate(24%, -20%);
   }
 `;
@@ -26,7 +26,6 @@ export const WrapperInfo = styled.div`
 export const ImgFilm = styled.img`
   height: 100vh;
 `;
-
 
 export const Title = styled.p`
   font-weight: 700;
@@ -70,5 +69,3 @@ export const Nav = styled.nav`
     color: #2668c3;
   }
 `;
-
- 

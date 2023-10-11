@@ -3,7 +3,7 @@ import { NavLink, Outlet, useParams } from 'react-router-dom';
 import * as API from 'service/api';
 import hero from 'images/hero.png';
 import {
-  ConatinerMoviesID,
+  ContainerMoviesID,
   WrapperInfo,
   Title,
   Text,
@@ -28,8 +28,12 @@ export default function MoviesID(params) {
   const { backdrop_path, original_title, overview } = movieDetail;
   return (
     <div>
-      <ConatinerMoviesID>
-       {backdrop_path === null? <img src={hero} alt="hero" />: <ImgFilm src={BASE_URL + backdrop_path} alt="backdrop" />} 
+      <ContainerMoviesID>
+        {backdrop_path === null ? (
+          <img src={hero} alt="hero" />
+        ) : (
+          <ImgFilm src={BASE_URL + backdrop_path} alt="backdrop" />
+        )}
         <WrapperInfo>
           <Title>{original_title}</Title>
           <Text>{overview}</Text>
@@ -42,7 +46,7 @@ export default function MoviesID(params) {
         <Container maxWidth="xl">
           <Outlet />
         </Container>
-      </ConatinerMoviesID>
+      </ContainerMoviesID>
     </div>
   );
 }
