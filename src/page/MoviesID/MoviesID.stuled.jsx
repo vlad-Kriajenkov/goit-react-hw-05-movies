@@ -45,15 +45,18 @@ export const Text = styled.p`
   letter-spacing: 0.005em;
 `;
 
-export const Nav = styled.nav`
+export const WrapperBtn = styled.div`
   margin-top: 10px;
 
-  a {
-    text-decoration: none;
+  button {
     padding: 5px 10px;
     border-radius: 4px;
     margin-right: 20px;
+
     background-color: #37393c;
+    border: none;
+    cursor: pointer;
+
     color: #ffffff;
     &.active {
       background-color: #2668c3;
@@ -62,10 +65,10 @@ export const Nav = styled.nav`
       color: #ffffff;
     }
   }
-  a:last-child {
+  button:last-child {
     margin-right: 0px;
   }
-  a:hover {
+  button:hover {
     color: #2668c3;
   }
 `;
