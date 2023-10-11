@@ -13,6 +13,7 @@ const Reviews = () => {
 
   useEffect(() => {
     try {
+      window.removeEventListener()
       const axsiosReviews = async () => {
         const responce = await API.getReviews(id);
         setReviews(responce);
