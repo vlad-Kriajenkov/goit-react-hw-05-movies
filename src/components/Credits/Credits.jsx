@@ -10,6 +10,16 @@ export default function Credits() {
   const { id } = useParams();
   const BASE_URL = 'https://image.tmdb.org/t/p/original';
 
+  let a = {
+    a: 1,
+  };
+  let b = {
+    a: 1,
+  };
+  let c = a;
+
+  console.log(a === b);
+  console.log(a === c);
   useEffect(() => {
     const axsiosCredits = async () => {
       const data = await API.getCredits(`${id}`);
@@ -19,7 +29,7 @@ export default function Credits() {
   }, [id]);
   console.log(credits);
   return credits?.cast.length === 0 ? (
-    <StatusNotification  text={'Unfortunately no information :('}/>
+    <StatusNotification text={'Unfortunately no information :('} />
   ) : (
     <CardList>
       {credits?.cast.map(({ character, original_name, id, profile_path }) => (
