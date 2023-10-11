@@ -5,21 +5,11 @@ import * as API from 'service/api';
 import { CardItem, CardList } from './Credits.stuled';
 import StatusNotification from 'components/StatusNotification/StatusNotification';
 
-export default function Credits() {
+const Credits = () => {
   const [credits, setCredits] = useState();
   const { id } = useParams();
   const BASE_URL = 'https://image.tmdb.org/t/p/original';
 
-  let a = {
-    a: 1,
-  };
-  let b = {
-    a: 1,
-  };
-  let c = a;
-
-  console.log(a === b);
-  console.log(a === c);
   useEffect(() => {
     const axsiosCredits = async () => {
       const data = await API.getCredits(`${id}`);
@@ -45,4 +35,5 @@ export default function Credits() {
       ))}
     </CardList>
   );
-}
+};
+export { Credits };
