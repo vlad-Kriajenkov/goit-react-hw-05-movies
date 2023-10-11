@@ -1,7 +1,7 @@
 import PopularWeek from 'components/PopularWeek/PopularWeek';
 import SliderTrendingFilm from 'components/SliderTrendingFilm/SliderTrendingFilm';
 
-export const Home = () => {
+const Home = () => {
   return (
     <div>
       <SliderTrendingFilm />
@@ -9,3 +9,4 @@ export const Home = () => {
     </div>
   );
 };
+export default Home;
