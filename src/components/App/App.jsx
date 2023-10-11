@@ -1,5 +1,5 @@
 import Credits from 'components/Credits/Credits';
-import Layout from 'components/Layout/Layout';
+import Layout from 'Layout/Layout';
 import Reviews from 'components/Review/Reviews';
 import { Home } from 'page/Home/Home';
 import Movice from 'page/Movice/Movice';
