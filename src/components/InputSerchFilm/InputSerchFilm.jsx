@@ -1,14 +1,13 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
+import { Container } from './InputSerchFilm.styled';
 
-import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 
 import { useNavigate } from 'react-router-dom';
 
-
-const InputSerchFilm = () => {
+const InputSerchFilm = ({ handelMebu }) => {
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
 
@@ -18,19 +17,12 @@ const InputSerchFilm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    handelMebu();
     navigate(`/movies?name=${searchValue}`);
   };
 
   return (
-    <Paper
-      component="form"
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        width: 300,
-        marginRight: 5,
-      }}
-    >
+    <Container>
       <InputBase
         className="search__input"
         sx={{ ml: 1, flex: 1 }}
@@ -50,7 +42,7 @@ const InputSerchFilm = () => {
       >
         <SearchIcon />
       </IconButton>
-    </Paper>
+    </Container>
   );
 };
-export default InputSerchFilm;
+export { InputSerchFilm };
