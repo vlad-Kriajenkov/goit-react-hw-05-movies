@@ -1,10 +1,12 @@
-import PopularWeek from 'components/PopularWeek/PopularWeek';
-import SliderTrendingFilm from 'components/SliderTrendingFilm/SliderTrendingFilm';
+import { PopularWeek, SliderTrendingFilm } from 'components';
 
 const Home = () => {
   return (
     <div>
-      <SliderTrendingFilm />
+      <div style={{ height: '100vh' }}>
+        <SliderTrendingFilm />
+      </div>
+
       <PopularWeek />
     </div>
   );
