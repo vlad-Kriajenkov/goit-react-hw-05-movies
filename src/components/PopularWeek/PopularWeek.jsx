@@ -15,15 +15,40 @@ import {
   StatFilm,
 } from './PopularWeek.module';
 
-export default function PopularWeek() {
+const PopularWeek = () => {
   const [trendingFilms, setTrendingFilms] = useState();
   const BASE_URL = 'https://image.tmdb.org/t/p/original';
+
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 425,
+        settings: {
+          autoplay: true,
+          autoplaySpeed: 3000,
+          arrows: false,
+          dots: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          autoplay: true,
+          autoplaySpeed: 3000,
+          arrows: false,
+          dots: false,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
   };
   const theme = createTheme({
     palette: {
@@ -40,9 +65,9 @@ export default function PopularWeek() {
     };
     axsiosTrending();
   }, []);
- 
+
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" style={{ marginTop: '30px' }}>
       <TitlePopularWeek>Popular of the week</TitlePopularWeek>
       <Slider {...settings}>
         {trendingFilms?.results.map(
@@ -76,4 +101,6 @@ export default function PopularWeek() {
       </Slider>
     </Container>
   );
-}
+};
+
+export { PopularWeek };

@@ -6,9 +6,19 @@ export const TitlePopularWeek = styled.h1`
   line-height: 1.33;
   letter-spacing: 0.005em;
 
-  padding: 60px 0px;
+  width: 45%;
+  background-color: #3d3c3c9c;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  box-shadow: 2px 2px 5px 0px #ffffff41;
+  padding: 20px 30px;
+  margin-bottom: 10px;
 
   color: #f9f9f9;
+  @media screen and (max-width: 425px) {
+    width: 75%;
+  }
+
 `;
 
 export const NameFilm = styled.p`
@@ -36,11 +46,18 @@ export const StatFilm = styled.p`
 `;
 export const ContainerCard = styled.div`
   display: flex;
+
+  margin-right: 10px;
+
+  background-color: #ffffff18;
+  border: 1px solid #ffffff12;
+
+  box-shadow: 2px 2px 5px 0px #ffffff41;
 `;
 export const Img = styled.img`
   width: 200px;
 `;
 
 export const WrapperInfo = styled.div`
-  margin-left: 20px;
+  padding: 20px 10px;
 `;
