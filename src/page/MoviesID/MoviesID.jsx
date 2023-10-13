@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import * as API from 'service/api';
-import hero from 'images/hero.png';
+import hero from 'assets/images/Movies/hero.png';
 import {
   ContainerMoviesID,
   WrapperInfo,

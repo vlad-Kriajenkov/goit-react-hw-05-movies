@@ -9,7 +9,7 @@ import {
   WrapperMenuMob,
 } from './AppBar.stuled';
 import { Modal, InputSerchFilm } from 'components';
-import Logo from 'images/Logo.png';
+import Logo from 'assets/images/Logo/Logo.svg';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';

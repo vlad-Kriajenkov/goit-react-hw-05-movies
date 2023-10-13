@@ -3,8 +3,8 @@ import { NavLink, useLocation } from 'react-router-dom';
 import * as API from 'service/api';
 import css from './Movice.module.css';
 import { Container } from '@mui/material';
-import coverNotFound from 'images/coverNotFound.png';
-import hero from 'images/hero.png';
+import coverNotFound from 'assets/images/Loading/coverNotFound.png';
+import hero from 'assets/images/Movies/hero.png';
 import StatusNotification from 'components/StatusNotification/StatusNotification';
 
 export default function Movice() {
