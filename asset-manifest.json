@@ -1,14 +1,16 @@
 {
   "files": {
     "main.css": "/sain-stream/static/css/main.715cacb0.css",
-    "main.js": "/sain-stream/static/js/main.d1020347.js",
+    "main.js": "/sain-stream/static/js/main.47c6eb0c.js",
     "static/media/hero.png": "/sain-stream/static/media/hero.5ce78886a084f2f1b4a1.png",
+    "static/media/BackgroundBlurs.png": "/sain-stream/static/media/BackgroundBlurs.15df03238197eae8d20f.png",
+    "static/media/Logo.svg": "/sain-stream/static/media/Logo.ebb002093792c2b628b3ace5946c3471.svg",
     "index.html": "/sain-stream/index.html",
     "main.715cacb0.css.map": "/sain-stream/static/css/main.715cacb0.css.map",
-    "main.d1020347.js.map": "/sain-stream/static/js/main.d1020347.js.map"
+    "main.47c6eb0c.js.map": "/sain-stream/static/js/main.47c6eb0c.js.map"
   },
   "entrypoints": [
     "static/css/main.715cacb0.css",
-    "static/js/main.d1020347.js"
+    "static/js/main.47c6eb0c.js"
   ]
 }
