@@ -11,7 +11,7 @@ import {
   WrapperBtn,
 } from './MoviesID.stuled';
 import { Container } from '@mui/material';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Credits, Reviews } from 'components';
 
 export default function MoviesID(params) {
@@ -19,15 +19,24 @@ export default function MoviesID(params) {
   const [infoCredits, setInfoCredits] = useState(false);
   const [infoReviews, setInfoReviews] = useState(false);
   const BASE_URL = 'https://image.tmdb.org/t/p/original';
-  const { id } = useParams();
+  const { id, media_type } = useParams();
 
   useEffect(() => {
     const axsiosMovieDetail = async () => {
-      const data = await API.getMovieDetails(`${id}`);
-      setMovieDetail(data);
+      try {
+        if (media_type === 'tv') {
+          const data = await API.getTVDetails(`${id}`);
+          setMovieDetail(data);
+        } else {
+          const data = await API.getMovieDetails(`${id}`);
+          setMovieDetail(data);
+        }
+      } catch (error) {
+        Notify.failure('Qui timide rogat docet negare');
+      }
     };
     axsiosMovieDetail();
-  }, [id]);
+  }, [id, media_type]);
   const handelInfoCreditsReviews = name => {
     if (name === 'Credits') {
       setInfoCredits(true);
@@ -37,7 +46,7 @@ export default function MoviesID(params) {
       setInfoReviews(true);
     }
   };
-  const { backdrop_path, original_title, overview } = movieDetail;
+  const { backdrop_path, original_title, overview,original_name } = movieDetail;
   return (
     <div>
       <ContainerMoviesID>
@@ -47,7 +56,7 @@ export default function MoviesID(params) {
           <ImgFilm src={BASE_URL + backdrop_path} alt="backdrop" />
         )}
         <WrapperInfo>
-          <Title>{original_title}</Title>
+          <Title>{original_title === undefined? original_name : original_title}</Title>
           <Text>{overview}</Text>
           <WrapperBtn>
             <button onClick={() => handelInfoCreditsReviews('Credits')}>

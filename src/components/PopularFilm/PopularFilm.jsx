@@ -2,7 +2,7 @@ import { CardMobile } from 'components/CardFilm';
 import { Loader } from 'components/Loader';
 import React, { useEffect, useState } from 'react';
 import * as API from 'service/api';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const PopularFilm = () => {
   const [trendingFilm, setTrendingFilm] = useState(null);
   const [loading, setLoiding] = useState(false);
@@ -15,7 +15,7 @@ const PopularFilm = () => {
         setTrendingFilm(data.results[0]);
         setLoiding(false);
       } catch (error) {
-        console.log(error);
+        Notify.failure('Qui timide rogat docet negare');
       }
     };
     axsiosTrending();

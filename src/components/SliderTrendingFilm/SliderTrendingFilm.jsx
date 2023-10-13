@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import './SliderTrendingFilm.css';
 import * as API from 'service/api';
 import { Rating } from '@mui/material';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const SliderTrendingFilm = () => {
   const BASE_URL = 'https://image.tmdb.org/t/p/original';
@@ -19,14 +20,16 @@ const SliderTrendingFilm = () => {
     pauseOnHover: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-
-
   };
 
   useEffect(() => {
     const axsiosTrending = async () => {
-      const data = await API.getTrending('all/day');
-      setTrendingFilms(data);
+      try {
+        const data = await API.getTrending('all/day');
+        setTrendingFilms(data);
+      } catch (error) {
+        Notify.failure('Qui timide rogat docet negare');
+      }
     };
     axsiosTrending();
   }, []);
@@ -79,4 +82,4 @@ const SliderTrendingFilm = () => {
     </Slider>
   );
 };
-export {SliderTrendingFilm}
+export { SliderTrendingFilm };

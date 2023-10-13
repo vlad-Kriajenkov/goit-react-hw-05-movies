@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import * as API from 'service/api';
 import { CardItem, CardList } from './Credits.stuled';
 import StatusNotification from 'components/StatusNotification/StatusNotification';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const Credits = () => {
   const [credits, setCredits] = useState();
   const { id } = useParams();
@@ -12,8 +12,13 @@ const Credits = () => {
 
   useEffect(() => {
     const axsiosCredits = async () => {
-      const data = await API.getCredits(`${id}`);
-      setCredits(data);
+      try {
+        const data = await API.getCredits(`${id}`);
+        setCredits(data);
+      } catch (error) {
+        Notify.failure('Qui timide rogat docet negare');
+      }
+   
     };
     axsiosCredits();
   }, [id]);

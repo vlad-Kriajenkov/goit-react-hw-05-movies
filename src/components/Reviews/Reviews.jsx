@@ -4,21 +4,21 @@ import { useEffect, useState } from 'react';
 import { Avatar, Container } from '@mui/material';
 import * as API from 'service/api';
 import css from './Reviews.module.css';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const Reviews = ({ id }) => {
   const [reviews, setReviews] = useState('');
 
   const BASE_URL = 'https://image.tmdb.org/t/p/original';
   useEffect(() => {
-    try {
-      const axsiosReviews = async () => {
+    const axsiosReviews = async () => {
+      try {
         const responce = await API.getReviews(id);
         setReviews(responce);
-      };
-      axsiosReviews();
-    } catch (error) {
-      console.log(error);
-    }
+      } catch (error) {
+        Notify.failure('Qui timide rogat docet negare');
+      }
+    };
+    axsiosReviews();
   }, [id]);
 
   const reviewLegtnh = reviews?.results?.length;
