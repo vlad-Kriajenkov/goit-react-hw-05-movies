@@ -13,7 +13,7 @@ import StarIcon from '@mui/icons-material/Star';
 import { Link } from 'react-router-dom';
 
 const CardDesktop = val => {
-  const { id, poster_path, title, vote_average, media_type } = val.item;
+  const { id, poster_path, title, vote_average, media_type, name } = val.item;
 
   const BASE_URL = 'https://image.tmdb.org/t/p/original';
   const theme = createTheme({
@@ -28,10 +28,10 @@ const CardDesktop = val => {
     <Card width={'fit-content'}>
       <ContainerCard>
         <ThemeProvider theme={theme}>
-          <Link to={`movies/${id}`}>
+          <Link to={`movies/${id}/${media_type}`}>
             <Img src={BASE_URL + poster_path} alt={title} />
             <WrapperInfo>
-              <NameFilm>{title}</NameFilm>
+              <NameFilm>{title === undefined ? name : title}</NameFilm>
               <StatFilm>
                 <StarIcon sx={{ fontSize: 25 }} color="secondary" />
                 {vote_average} | {media_type.toUpperCase()}
