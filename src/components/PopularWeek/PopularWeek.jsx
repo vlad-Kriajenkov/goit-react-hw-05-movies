@@ -1,40 +1,32 @@
 import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import { Link } from 'react-router-dom';
 import * as API from 'service/api';
-import { Container, Button } from '@mui/material';
-import StarIcon from '@mui/icons-material/Star';
-import InfoIcon from '@mui/icons-material/Info';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {
-  ContainerCard,
-  Img,
-  WrapperInfo,
-  TitlePopularWeek,
-  NameFilm,
-  StatFilm,
-} from './PopularWeek.module';
+import { Container } from '@mui/material';
+import { nanoid } from 'nanoid';
+import { TitlePopularWeek } from './PopularWeek.module';
+import { CardDesktop } from 'components/CardFilm';
 
 const PopularWeek = () => {
   const [trendingFilms, setTrendingFilms] = useState();
-  const BASE_URL = 'https://image.tmdb.org/t/p/original';
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 6,
+    slidesToScroll: 2,
     responsive: [
       {
         breakpoint: 425,
         settings: {
-          autoplay: true,
-          autoplaySpeed: 3000,
+          className: 'center',
+          centerMode: true,
+          infinite: true,
+          centerPadding: '70px',
+          slidesToShow: 1,
+
           arrows: false,
           dots: false,
-          slidesToShow: 1,
-          slidesToScroll: 1,
         },
       },
       {
@@ -50,13 +42,6 @@ const PopularWeek = () => {
       },
     ],
   };
-  const theme = createTheme({
-    palette: {
-      secondary: {
-        main: '#FFCD1A',
-      },
-    },
-  });
 
   useEffect(() => {
     const axsiosTrending = async () => {
@@ -70,34 +55,9 @@ const PopularWeek = () => {
     <Container maxWidth="xl" style={{ marginTop: '30px' }}>
       <TitlePopularWeek>Popular of the week</TitlePopularWeek>
       <Slider {...settings}>
-        {trendingFilms?.results.map(
-          ({ id, poster_path, title, vote_average, media_type }) => (
-            <div key={id}>
-              <ContainerCard>
-                <ThemeProvider theme={theme}>
-                  <Img src={BASE_URL + poster_path} alt={title} />
-                  <WrapperInfo>
-                    <NameFilm>{title}</NameFilm>
-                    <StatFilm>
-                      <StarIcon sx={{ fontSize: 25 }} color="secondary" />
-                      {vote_average} | {media_type.toUpperCase()}
-                    </StatFilm>
-
-                    <Link to={`movies/${id}`}>
-                      <Button
-                        variant="contained"
-                        color="success"
-                        startIcon={<InfoIcon />}
-                      >
-                        More Info
-                      </Button>
-                    </Link>
-                  </WrapperInfo>
-                </ThemeProvider>
-              </ContainerCard>
-            </div>
-          )
-        )}
+        {trendingFilms?.results.map(val => (
+          <CardDesktop key={nanoid()} item={val} />
+        ))}
       </Slider>
     </Container>
   );
