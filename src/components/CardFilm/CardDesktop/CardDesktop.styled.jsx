@@ -26,14 +26,6 @@ export const StatFilm = styled.p`
   color: white;
 `;
 
-export const Img = styled.img`
-  /* width: 200px; */
-
-  @media screen and (max-width: 425px) {
-    /* width: 250px; */
-  }
-`;
-
 export const WrapperInfo = styled.div`
   position: absolute;
   bottom: 0;

@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ContainerCard,
-  Img,
   WrapperInfo,
   NameFilm,
   StatFilm,
@@ -29,7 +28,7 @@ const CardDesktop = val => {
       <ContainerCard>
         <ThemeProvider theme={theme}>
           <Link to={`movies/${id}/${media_type}`}>
-            <Img src={BASE_URL + poster_path} alt={title} />
+            <img src={BASE_URL + poster_path} alt={title} />
             <WrapperInfo>
               <NameFilm>{title === undefined ? name : title}</NameFilm>
               <StatFilm>
