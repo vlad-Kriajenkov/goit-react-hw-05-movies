@@ -2,7 +2,7 @@ import React from 'react';
 import { LoaderBack } from './Loader.styled';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'; 
-const Loader = ({ cards, height = 300 }) => {
+const Loader = ({ cards, height = 475 }) => {
   
   return Array(cards)
     .fill(0)
