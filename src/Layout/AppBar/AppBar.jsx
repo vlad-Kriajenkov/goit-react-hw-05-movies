@@ -8,14 +8,14 @@ import {
   BtnClose,
   WrapperMenuMob,
 } from './AppBar.stuled';
-import { Modal, InputSerchFilm } from 'components';
+import { Modal, InputSerchFilm } from 'components'; 
 import Logo from 'assets/images/Logo/Logo.svg';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
 const AppBar = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 425px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 640px)' });
   const [targetModal, setTargetModal] = useState(false);
 
   const handelMebu = () => {

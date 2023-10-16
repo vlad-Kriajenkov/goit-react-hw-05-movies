@@ -21,7 +21,7 @@ export const Container = styled.header`
   @media (max-width: 1440px) {
     grid-template-columns: 1.5fr 5fr 1fr;
   }
-  @media (max-width: 425px) {
+  @media (max-width: 640px) {
     width: 100%;
     grid-template-columns: 1fr 1fr;
     padding: 10px 0px;
@@ -30,7 +30,7 @@ export const Container = styled.header`
 
 export const Nav = styled.nav`
   margin-left: 90px;
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 640px) {
     padding-top: 10px;
     margin-left: 0px;
   }
