@@ -5,15 +5,13 @@ import * as API from 'service/api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const PopularFilm = () => {
   const [trendingFilm, setTrendingFilm] = useState(null);
-  const [loading, setLoiding] = useState(false);
+  const [isLoading, setIsLoiding] = useState(true);
   useEffect(() => {
-    setLoiding(true);
-
     const axsiosTrending = async () => {
       try {
         const data = await API.getTrending('movie/day');
         setTrendingFilm(data.results[0]);
-        setLoiding(false);
+        setIsLoiding(false);
       } catch (error) {
         Notify.failure('Qui timide rogat docet negare');
       }
@@ -22,14 +20,18 @@ const PopularFilm = () => {
   }, []);
 
   return (
-    <Loader loading={loading}>
-      <CardMobile
-        id={trendingFilm?.id}
-        poster_path={trendingFilm?.poster_path}
-        title={trendingFilm?.title}
-        widthImg={'100%'}
-      />
-    </Loader>
+    <>
+      {isLoading ? (
+        <Loader height={600} />
+      ) : (
+        <CardMobile
+          id={trendingFilm?.id}
+          poster_path={trendingFilm?.poster_path}
+          title={trendingFilm?.title}
+          widthImg={'100%'}
+        />
+      )}
+    </>
   );
 };
 export { PopularFilm };
