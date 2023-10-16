@@ -2,11 +2,14 @@ import styled from '@emotion/styled';
 
 export const CardBackGraund = styled.div`
   background-color: #ffffff18;
-  border: 1px solid #ffffff12;
-  box-shadow: 2px 2px 5px 0px #ffffff41;
-  margin: 10px;
-  width: ${props => props.width};
+  border: 0.063rem solid #ffffff12;
+  border-radius: 1rem;
 
+  margin: 0.5rem;
+  width: ${props => props.width};
+  img {
+    border-radius: 1rem;
+  }
   @media screen and (max-width: 425px) {
     margin: none;
   }
