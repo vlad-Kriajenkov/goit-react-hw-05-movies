@@ -46,38 +46,34 @@ const SliderTrendingFilm = () => {
           release_date,
           first_air_date,
           vote_average,
-        }) => {
-          return (
-            <div key={id} className="slider__card">
-              <div className="wrapp">
-                <img src={BASE_URL + backdrop_path} alt={title} />
+        }) => (
+          <div key={id} className="slider__card">
+            <div className="wrapp">
+              <img src={BASE_URL + backdrop_path} alt={title} />
 
-                <div className="slider__info">
-                  <h1 className="slider__title">
-                    {title === undefined ? name : title}
-                  </h1>
-                  <div className="slider__relize">
-                    <Rating
-                      name="read-only"
-                      max={10}
-                      value={vote_average}
-                      size="small"
-                      readOnly
-                      className="reating"
-                    />
-                    <p>
-                      {release_date === undefined
-                        ? first_air_date
-                        : release_date}
-                    </p>
-                  </div>
-
-                  <p className="slider__text">{overview}</p>
+              <div className="slider__info">
+                <h1 className="slider__title">
+                  {title === undefined ? name : title}
+                </h1>
+                <div className="slider__relize">
+                  <Rating
+                    name="read-only"
+                    max={10}
+                    value={vote_average}
+                    size="small"
+                    readOnly
+                    className="reating"
+                  />
+                  <p>
+                    {release_date === undefined ? first_air_date : release_date}
+                  </p>
                 </div>
+
+                <p className="slider__text">{overview}</p>
               </div>
             </div>
-          );
-        }
+          </div>
+        )
       )}
     </Slider>
   );
