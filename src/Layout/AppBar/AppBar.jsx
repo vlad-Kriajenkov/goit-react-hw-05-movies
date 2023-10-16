@@ -8,7 +8,7 @@ import {
   BtnClose,
   WrapperMenuMob,
 } from './AppBar.stuled';
-import { Modal, InputSerchFilm } from 'components'; 
+import { Modal, InputSerchFilm } from 'components';
 import Logo from 'assets/images/Logo/Logo.svg';
 
 import MenuIcon from '@mui/icons-material/Menu';
@@ -18,7 +18,7 @@ const AppBar = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 640px)' });
   const [targetModal, setTargetModal] = useState(false);
 
-  const handelMebu = () => {
+  const handleMenu = () => {
     setTargetModal(!targetModal);
   };
 
@@ -26,20 +26,20 @@ const AppBar = () => {
     return (
       <Container>
         <img src={Logo} alt="Saint Stream" />
-        <BtnOpen onClick={handelMebu}>
+        <BtnOpen onClick={handleMenu}>
           <MenuIcon fontSize="large" />
         </BtnOpen>
 
         <Modal handleBurger={targetModal}>
           <WrapperMenuMob>
-            <InputSerchFilm handelMebu={handelMebu} />
-            <Nav onClick={handelMebu}>
+            <InputSerchFilm handleMenu={handleMenu} />
+            <Nav onClick={handleMenu}>
               <Link to="/"> Home</Link>
               <Link to="movies"> Movies</Link>
             </Nav>
 
             <BtnClose>
-              <CloseIcon onClick={handelMebu} fontSize="large"  />
+              <CloseIcon onClick={handleMenu} fontSize="large" />
             </BtnClose>
           </WrapperMenuMob>
         </Modal>

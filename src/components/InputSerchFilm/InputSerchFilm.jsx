@@ -7,17 +7,17 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import { useNavigate } from 'react-router-dom';
 
-const InputSerchFilm = ({ handelMebu }) => {
+const InputSerchFilm = ({ handleMenu }) => {
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
 
-  const handelChange = e => {
+  const handleChange = e => {
     setSearchValue(e.target.value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    handelMebu();
+    handleMenu();
     navigate(`/movies?name=${searchValue}`);
   };
 
@@ -28,7 +28,7 @@ const InputSerchFilm = ({ handelMebu }) => {
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search"
         value={searchValue}
-        onChange={handelChange}
+        onChange={handleChange}
       ></InputBase>
 
       <IconButton

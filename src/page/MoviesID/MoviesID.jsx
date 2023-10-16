@@ -37,7 +37,7 @@ export default function MoviesID(params) {
     };
     axsiosMovieDetail();
   }, [id, media_type]);
-  const handelInfoCreditsReviews = name => {
+  const handleInfoCreditsReviews = name => {
     if (name === 'Credits') {
       setInfoCredits(true);
       setInfoReviews(false);
@@ -46,7 +46,8 @@ export default function MoviesID(params) {
       setInfoReviews(true);
     }
   };
-  const { backdrop_path, original_title, overview,original_name } = movieDetail;
+  const { backdrop_path, original_title, overview, original_name } =
+    movieDetail;
   return (
     <div>
       <ContainerMoviesID>
@@ -56,13 +57,15 @@ export default function MoviesID(params) {
           <ImgFilm src={BASE_URL + backdrop_path} alt="backdrop" />
         )}
         <WrapperInfo>
-          <Title>{original_title === undefined? original_name : original_title}</Title>
+          <Title>
+            {original_title === undefined ? original_name : original_title}
+          </Title>
           <Text>{overview}</Text>
           <WrapperBtn>
-            <button onClick={() => handelInfoCreditsReviews('Credits')}>
+            <button onClick={() => handleInfoCreditsReviews('Credits')}>
               Credits
             </button>
-            <button onClick={() => handelInfoCreditsReviews('Reviews')}>
+            <button onClick={() => handleInfoCreditsReviews('Reviews')}>
               Reviews
             </button>
           </WrapperBtn>
