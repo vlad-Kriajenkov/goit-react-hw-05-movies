@@ -1,8 +1,9 @@
 import Slider from 'react-slick';
+import { CardDesktop, Loader } from 'components';
 import { Container } from '@mui/material';
 import { TitlePopularWeek } from './PopularWeek.module';
-
-const PopularWeek = ({ children, title }) => {
+import { nanoid } from 'nanoid';
+const PopularWeek = ({ children, title, isLoading, trendingArray }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -40,7 +41,15 @@ const PopularWeek = ({ children, title }) => {
   return (
     <Container maxWidth="xl" style={{ marginTop: '30px' }}>
       <TitlePopularWeek>{title}</TitlePopularWeek>
-      <Slider {...settings}>{children}</Slider>
+      <Slider {...settings}>
+        {trendingArray?.results.map(val =>
+          isLoading ? (
+            <Loader key={nanoid()} />
+          ) : (
+            <CardDesktop item={val} key={nanoid()} />
+          )
+        )}
+      </Slider>
     </Container>
   );
 };
