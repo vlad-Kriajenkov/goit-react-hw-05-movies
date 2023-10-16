@@ -37,7 +37,7 @@ const InputSerchFilm = ({ handelMebu }) => {
         }
         type="submit"
         onClick={handleSubmit}
-        sx={{ p: '10px' }}
+        sx={{ p: '2px' }}
         aria-label="search"
       >
         <SearchIcon />
