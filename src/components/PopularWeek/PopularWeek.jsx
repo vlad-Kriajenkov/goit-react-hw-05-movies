@@ -3,7 +3,16 @@ import { CardDesktop, Loader } from 'components';
 import { Container } from '@mui/material';
 import { TitlePopularWeek } from './PopularWeek.module';
 import { nanoid } from 'nanoid';
+import { useMediaQuery } from 'react-responsive';
+import { useEffect, useState } from 'react';
+
 const PopularWeek = ({ children, title, isLoading, trendingArray }) => {
+  const isMobile = useMediaQuery({ query: '(max-width: 425px)' });
+  const [handleContainer, sethandleContainer] = useState(false);
+
+  useEffect(() => {
+    isMobile ? sethandleContainer(true) : sethandleContainer(false);
+  }, [isMobile]);
   const settings = {
     dots: false,
     infinite: true,
@@ -40,7 +49,11 @@ const PopularWeek = ({ children, title, isLoading, trendingArray }) => {
   };
 
   return (
-    <Container maxWidth="xl" style={{ marginTop: '30px' }}>
+    <Container
+      maxWidth="xl"
+      disableGutters={handleContainer}
+      style={{ marginTop: '30px' }}
+    >
       <TitlePopularWeek>{title}</TitlePopularWeek>
       <Slider {...settings}>
         {trendingArray?.results.map(val =>
