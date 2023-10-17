@@ -1,74 +1,47 @@
 import styled from '@emotion/styled';
 
-export const ContainerMoviesID = styled.div`
-  position: reletive;
+export const WrapBanner = styled.div`
+  position: relative;
 `;
 
-export const WrapperInfo = styled.div`
+export const NameFilm = styled.h1`
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+`
+
+export const Gradient = styled.div`
   position: absolute;
-  top: 20%;
-  left: 0%;
-  transform: translate(24%, 20%);
+  bottom: 0;
+  left: 0;
 
-  width: 600px;
+  width: 100%;
+  height: 100px;
+  background: rgb(0, 0, 0);
 
-  padding: 30px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 78.02%);
+`;
 
-  border-radius: 6px;
-
-  background-color: rgb(0, 0, 0, 0.8);
-  color: #ffffff;
-  @media (min-width: 1300px) {
-    transform: translate(24%, -20%);
+export const WrapperStory = styled.div`
+  margin-bottom: 1rem;
+  h2 {
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+    letter-spacing: 0.0075rem;
   }
-`;
-
-export const ImgFilm = styled.img`
-  height: 100vh;
-`;
-
-export const Title = styled.p`
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 1.25;
-
-  letter-spacing: 0.005em;
-
-  margin-bottom: 10px;
-`;
-
-export const Text = styled.p`
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.43;
-
-  letter-spacing: 0.005em;
-`;
-
-export const WrapperBtn = styled.div`
-  margin-top: 10px;
-
-  button {
-    padding: 5px 10px;
-    border-radius: 4px;
-    margin-right: 20px;
-
-    background-color: #37393c;
-    border: none;
-    cursor: pointer;
-
-    color: #ffffff;
-    &.active {
-      background-color: #2668c3;
+  p {
+    font-size: 0.6rem;
+    line-height: 0.7rem; 
+    letter-spacing: 0.0075rem;
+    color: #9ca4ab;
+  }
+  @media screen and (max-width:425px) {
+    h2{
+      font-size: 1.5rem;
+      line-height: 2rem;
     }
-    &.active:hover {
-      color: #ffffff;
+    p{
+      font-size: 1.2rem;
+      line-height: 1.4rem; 
     }
-  }
-  button:last-child {
-    margin-right: 0px;
-  }
-  button:hover {
-    color: #2668c3;
   }
 `;
