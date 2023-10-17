@@ -18,7 +18,7 @@ const PopularWeek = ({ children, title, isLoading, trendingArray }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
 
     responsive: [
       {
@@ -29,7 +29,7 @@ const PopularWeek = ({ children, title, isLoading, trendingArray }) => {
           infinite: true,
           centerPadding: '70px',
           slidesToShow: 1,
-
+          slidesToScroll: 1,
           arrows: false,
           dots: false,
         },
