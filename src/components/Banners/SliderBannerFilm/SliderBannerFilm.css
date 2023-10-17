@@ -1,0 +1,24 @@
+.slider__relize {
+  display: flex;
+  margin-bottom: 0.3rem;
+
+  font-size: 0.5rem;
+  line-height: 1.57;
+
+  letter-spacing: 0.005em;
+
+  color: #9ca4ab;
+}
+.reating {
+  margin-right: 0.3rem;
+}
+.MuiRating-icon.MuiRating-iconEmpty {
+  color: rgb(255 255 255 / 26%);
+}
+
+.slick-arrow.slick-prev {
+  display: none !important;
+}
+.slick-arrow.slick-next {
+  right: -9px;
+}
