@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 
 export const ContainerCard = styled.div`
   position: relative;
+
+  height: ${props => props.height}px;
 `;
 
 export const WrapperInfo = styled.div`
@@ -10,6 +12,7 @@ export const WrapperInfo = styled.div`
   left: 0;
 
   width: 100%;
+
   border-radius: 1rem;
   background: linear-gradient(
     0deg,

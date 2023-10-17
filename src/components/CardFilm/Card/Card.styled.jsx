@@ -7,6 +7,7 @@ export const CardBackGraund = styled.div`
 
   margin: 0.5rem;
   width: ${props => props.width};
+  
   img {
     border-radius: 1rem;
   }
