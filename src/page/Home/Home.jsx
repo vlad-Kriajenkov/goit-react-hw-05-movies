@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Container } from '@mui/material';
-import { PopularWeek, SliderTrendingFilm, PopularFilm } from 'components';
+import { PopularWeek, SliderBannerFilm, PopularFilm } from 'components';
 import { useMediaQuery } from 'react-responsive';
 import * as API from 'service/api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -8,7 +8,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const Home = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 425px)' });
   const [trendingFilms, setTrendingFilms] = useState();
-  const [trendingTV, setTrendingTV] = useState();
+  const [trendingTV, setTrendingTV] = useState(); 
   const [isLoadingMV, setIsLoadingMV] = useState(true);
   const [isLoadingTV, setIsLoadingTV] = useState(true);
   useEffect(() => {
@@ -42,9 +42,9 @@ const Home = () => {
           <PopularFilm />
         </Container>
       ) : (
-        <div>
-          <SliderTrendingFilm />
-        </div>
+        <>
+          <SliderBannerFilm />
+        </>
       )}
 
       <PopularWeek
