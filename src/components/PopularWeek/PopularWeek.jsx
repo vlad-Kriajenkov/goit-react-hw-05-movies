@@ -1,10 +1,12 @@
 import Slider from 'react-slick';
-import { CardDesktop, Loader } from 'components';
+import { LoaderCard } from 'Loader';
+import { CardDesktop } from 'components';
 import { Container } from '@mui/material';
 import { TitlePopularWeek } from './PopularWeek.module';
 import { nanoid } from 'nanoid';
 import { useMediaQuery } from 'react-responsive';
 import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const PopularWeek = ({ children, title, isLoading, trendingArray }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 425px)' });
@@ -56,12 +58,30 @@ const PopularWeek = ({ children, title, isLoading, trendingArray }) => {
     >
       <TitlePopularWeek>{title}</TitlePopularWeek>
       <Slider {...settings}>
-        {trendingArray?.results.map(val =>
-          isLoading ? (
-            <Loader key={nanoid()} />
-          ) : (
-            <CardDesktop item={val} key={nanoid()} />
-          )
+        {trendingArray?.results.map(
+          ({
+            id,
+            poster_path,
+            title,
+            vote_average,
+            media_type = 'movie',
+            name,
+          }) =>
+            isLoading ? (
+              <LoaderCard key={nanoid()} />
+            ) : (
+              <NavLink key={nanoid()} to={`movies/${id}/${media_type}`}>
+                <CardDesktop
+                  id={id}
+                  poster_path={poster_path}
+                  title={title}
+                  vote_average={vote_average}
+                  media_type={media_type}
+                  name={name}
+                  key={nanoid()}
+                />
+              </NavLink>
+            )
         )}
       </Slider>
     </Container>
