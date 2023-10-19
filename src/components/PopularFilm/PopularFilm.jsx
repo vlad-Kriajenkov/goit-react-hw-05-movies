@@ -1,5 +1,5 @@
-import { CardMobile } from 'components/CardFilm';
-import { Loader } from 'components/Loader';
+import { CardBanner } from 'components/CardFilm';
+import { LoaderCard } from 'Loader';
 import React, { useEffect, useState } from 'react';
 import * as API from 'service/api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -22,9 +22,9 @@ const PopularFilm = () => {
   return (
     <>
       {isLoading ? (
-        <Loader height={600} />
+        <LoaderCard height={600} />
       ) : (
-        <CardMobile
+        <CardBanner
           id={trendingFilm?.id}
           poster_path={trendingFilm?.poster_path}
           title={trendingFilm?.title}
