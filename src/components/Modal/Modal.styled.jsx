@@ -8,7 +8,7 @@ export const Blackdrop = styled.div`
   transform: translate(100%, 100%);
   z-index: 100;
 
-  /* overflow-x: hidden; */
+ 
   width: 100%;
   height: 100dvh;
 
