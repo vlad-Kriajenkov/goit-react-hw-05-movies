@@ -2,8 +2,7 @@ import styled from '@emotion/styled';
 
 export const ContainerCard = styled.div`
   position: relative;
-
-  height: ${props => props.height}px;
+  width: fit-content;
 `;
 
 export const WrapperInfo = styled.div`

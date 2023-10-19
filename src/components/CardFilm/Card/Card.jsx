@@ -1,7 +1,10 @@
 import { CardBackGraund } from './Card.styled';
 
-const Card = ({ children, width }) => {
-  return <CardBackGraund width={width}>{children}</CardBackGraund>;
+const Card = ({ children, width, height }) => {
+  return (
+    <CardBackGraund width={width} height={height}>
+      {children}
+    </CardBackGraund>
+  );
 };
 export { Card };
- 
