@@ -5,6 +5,6 @@ export * from './Reviews';
 export * from './PopularWeek';
 
 export * from './PopularFilm';
-export * from './Loader';
+export * from '../Loader/LoaderCard';
 export * from './CardFilm';
 export * from './Banners';
