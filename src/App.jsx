@@ -19,6 +19,19 @@ export const App = () => {
         document.body.style.overflow = `auto`;
       }, 2000);
     };
+
+    if (/WebKit/i.test(navigator.userAgent)) {
+      // условие для Safari
+      var _timer = setInterval(function () {
+        if (/loaded|complete/.test(document.readyState)) {
+          clearInterval(_timer);
+          setTimeout(() => {
+            setIsLoader(false);
+            document.body.style.overflow = `auto`;
+          }, 2000);
+        }
+      }, 10);
+    }
   }, []);
 
   return (
