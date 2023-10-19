@@ -10,7 +10,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import StarIcon from '@mui/icons-material/Star';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { useMediaQuery } from 'react-responsive';
+
 import notFoundPoster from 'assets/images/Loading/coverNotFound.png';
 const CardDesktop = ({
   id,
